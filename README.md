@@ -1,4 +1,4 @@
-# Perfect Turnstile with PostgreSQL
+# Perfect Turnstile with Apache CouchDB
 
 <p align="center">
     <a href="http://perfect.org/get-involved.html" target="_blank">
@@ -40,56 +40,27 @@
 </p>
 
 
-This example demonstrates the integration Stormpath's Turnstile authentication system with Perfect and a PostgreSQL ORM.
+This example demonstrates the integration Stormpath's Turnstile authentication system with Perfect and an Apache CouchDB ORM.
 
-The library can be found at [https://github.com/PerfectlySoft/Perfect-Turnstile-PostgreSQL](https://github.com/PerfectlySoft/Perfect-Turnstile-PostgreSQL)
+The library can be found at [https://github.com/PerfectlySoft/Perfect-Turnstile-CouchDB](https://github.com/PerfectlySoft/Perfect-Turnstile-CouchDB)
 
 This package builds with Swift Package Manager and is part of the [Perfect](https://github.com/PerfectlySoft/Perfect) project.
 
 Ensure you have installed Xcode 8.0 or later.
 
-## Build Notes
+## Server Credentials
 
-### macOS
+You will need to set correct server credentials to access your Apache CouchDB Server:
 
-If you receive a compile error that says the following, you need to install and link libxml2
-
-```
-note: you may be able to install libxml-2.0 using your system-packager:
-
-    brew install libxml2
-
-Compile Swift Module 'PerfectXML' (2 sources)
-<module-includes>:1:9: note: in file included from <module-includes>:1:
-#import "libxml2.h"
+``` swift
+CouchDBConnection.host = "localhost"
+CouchDBConnection.username = "perfect"
+CouchDBConnection.password = "perfect"
+CouchDBConnection.port = 5984
+CouchDBConnection.ssl = false
 ```
 
-To install and link libxml2 with homebrew, use the following two commands
-
-```
-brew install libxml2
-brew link --force libxml2
-```
-
-To install Postgres:
-
-```
-brew install postgres
-```
-
-### Linux
-
-Ensure that you have installed libxml2-dev and pkg-config.
-
-``` 
-sudo apt-get install libxml2-dev pkg-config
-```
-
-To install libpq-dev
-
-```
-sudo apt-get install libpq-dev
-```
+These are located in `main.swift` lines 38-42.
 
 ## Setup - Xcode 8
 
@@ -100,7 +71,7 @@ sudo apt-get install libpq-dev
 swift package generate-xcodeproj
 ```
 
-* Open `PerfectTurnstilePostgreSQLDemo.xcodeproj`
+* Open `PerfectTurnstileCouchDBDemo.xcodeproj`
 
 To run this project from Xcode, edit the Scheme, Under "Options" for "run", check "Use custom working directory" and choose the project's working directory. After doing this, the project can be run from within Xcode.
 
@@ -109,7 +80,7 @@ To run this project from Xcode, edit the Scheme, Under "Options" for "run", chec
 * Check out or download the project;
 * In terminal, navigate to the directory 
 * Execute `swift build`
-* Once the project has compiled, execute `./.build/debug/PerfectTurnstilePostgreSQLDemo`
+* Once the project has compiled, execute `./.build/debug/PerfectTurnstileCouchDBDemo`
 
 ```
 [INFO] Starting HTTP server on 0.0.0.0:8181 with document root ./webroot

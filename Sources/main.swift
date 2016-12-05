@@ -38,6 +38,8 @@ let pturnstile = TurnstilePerfectRealm()
 CouchDBConnection.host = "localhost"
 CouchDBConnection.username = "perfect"
 CouchDBConnection.password = "perfect"
+CouchDBConnection.port = 5984
+CouchDBConnection.ssl = false
 
 // Set up the Authentication table
 let auth = AuthAccount()
