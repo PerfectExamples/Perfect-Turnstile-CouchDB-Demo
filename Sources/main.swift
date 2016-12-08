@@ -25,7 +25,7 @@ import StORM
 import CouchDBStORM
 import PerfectTurnstileCouchDB
 import PerfectRequestLogger
-
+import TurnstilePerfect
 
 //StORMdebug = true
 RequestLogFile.location = "./requests.log"
