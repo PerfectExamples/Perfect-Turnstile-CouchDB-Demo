@@ -68,3 +68,5 @@ requests.log
 log.log
 buildlinux
 Package.swift.orig
+.packages_lin
+.build_lin
